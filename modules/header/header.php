@@ -28,7 +28,7 @@ $hostname = gethostname();
 			<!-- HEADER -->
 			<h1 class="page-header">
 				<center>
-					<span class="glyphicon glyphicon-camera"></span>
+					<span class="glyphicon glyphicon-eye-close"></span>
 					&nbsp&nbsp
 					<a href="http://<?php echo $hostname ?>"><?php echo $hostname ?></a>
 				</center>

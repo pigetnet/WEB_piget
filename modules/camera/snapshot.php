@@ -1,6 +1,6 @@
 <?php
 $camurl="http://127.0.0.1:8080/?action=snapshot";
-if (file_exists("../appSettings.inc.php")){
+if (file_exists("../appSettings.inc.php")) {
     include_once '../appSettings.inc.php';
     include_once '../JsonSettings.class.php';
 }

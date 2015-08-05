@@ -1,4 +1,4 @@
-"use strict";
+
 
 $.fn.bootstrapSwitch.defaults.onColor = "success";
 $.fn.bootstrapSwitch.defaults.offColor = "danger";
@@ -26,11 +26,24 @@ $(".switches").on("switchChange.bootstrapSwitch", function(event, state) {
 //Manage buttons event
 function buttonsClicked(button){
     button = $(button).data();
-    console.log(button);
+    //console.log(button);
     var control_command = button.command;
     var control_id = button.id;
     var url = "?controls&"+control_id+"="+ control_command;
     sendRequest(url);
+    console.log(url);
+}
+
+function buttonsClickedSelect(button){
+    button = $(button).data();
+    //console.log(button);
+    var control_command = button.command;
+    var control_id = button.id;
+    arg = $("#"+control_id).val();
+
+    var url = "?controls&"+control_id+"="+ control_command+"&arg="+arg;
+    sendRequest(url);
+    console.log(url);
 }
 
 function sendRequest(url){

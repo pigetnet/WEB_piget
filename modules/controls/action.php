@@ -4,6 +4,10 @@
 //var_dump($_GET);
 $args = $_GET;
 unset($args["controls"]);
+if (isset($args["arg"])) {
+    $argument = $args["arg"];
+    unset($args["arg"]);
+}
 //var_dump($args);
 
 foreach ($args as $key => $arg) {
@@ -13,7 +17,11 @@ foreach ($args as $key => $arg) {
         if ($module->settings) {
             if (property_exists($module->settings, $arg)) {
                 $command = $module->settings->$arg;
+               
                 if (file_exists($command)) {
+                    if (isset($argument)) {
+                        $command = $command.' "'.$argument.'"';
+                    }
                     exec("sudo ".$command, $out, $err);
 
                     $out = str_replace("\"", "", $out);
